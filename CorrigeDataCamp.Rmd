@@ -23,6 +23,9 @@ informacion <- strsplit(puntuaciones,split = "/", fixed = T)
 
 apellidos_nombres_id <- sapply(informacion, function(x) x[2])
 
+apellidos_nombre_lista <- strsplit(apellidos_nombres_id, split = ",",fixed = T)
+
+apellidos_puntuaciones <- sapply(apellidos_nombre_lista, function(x)x[1])
 
 ```
 
