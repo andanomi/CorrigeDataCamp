@@ -40,8 +40,23 @@ puntos_lista<- lapply(puntos_full_names,function(x) {readLines(con = x, n= -1)})
 ¿todas las entregas usaron como nombre del fichero de puntos el indicado; puntos.txt ?¿cuántas variantes hay ?. ¿Todas las entregas contienen el fichero de puntos y el justificante de realización del curso ?
 
 ```{r}
+library(dplyr)
 ficheros_puntos <- lapply(informacion,function(x){x[3]})
 ficheros_correctos <- lapply(ficheros_puntos, function(x){grep("puntos.txt",x,fixed = TRUE)})
-ficheros_correctos == T
+bool_ficheros_correctos <- (ficheros_correctos == T)*1 #No todos son correctos
+
+cantidad_ficheros_correctos<- sum(bool_ficheros_correctos,na.rm=T)
+
+length(puntuaciones) == length(justificantes) #No todas las entregas contienen ambos ficheros
 ```
+
+ Crea un data frame (evalua_df) que contenga:
+
+ En la primera columna (apellidos) los apellidos del usuario
+ En la segunda (puntos) la puntuación obtenida. 
+ En la tercera columna el nombre del fichero usado para almacenar los puntos (NomFile)
+ En la cuarta el contenido del fichero puntos.txt  (Puntos) como cadena de texto.
+Almacena el dataframe en un fichero excel llamado NotasRIntermedio.xlsx 
+
+
 
