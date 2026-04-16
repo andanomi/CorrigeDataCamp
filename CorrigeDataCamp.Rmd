@@ -10,11 +10,14 @@ knitr::opts_chunk$set(echo = TRUE)
 ```
 
 ```{r}
-puntuaciones <- list.files(path=".", pattern = "\\.txt$", full.names = TRUE, recursive = T)
+puntuaciones <- list.files(path=".", pattern = "\\.txt$", full.names = F, recursive = T)
 
-justificantes <- list.files(path=".",pattern = "\\.pdf$", full.names = TRUE, recursive = TRUE)
+justificantes <- list.files(path=".",pattern = "\\.pdf$", full.names = F, recursive = TRUE)
 
 
+```
+
+```{r}
 
 ```
 
