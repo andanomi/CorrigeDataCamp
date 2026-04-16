@@ -16,6 +16,7 @@ justificantes <- list.files(path=".",pattern = "\\.pdf$", full.names = F, recurs
 
 puntuaciones
 ```
+Extrae los apellidos del usuario de la ruta del fichero de puntuaciones (strsplit)
 
 ```{r}
 
@@ -28,4 +29,12 @@ apellidos_nombre_lista <- strsplit(apellidos_nombres_id, split = ",",fixed = T)
 apellidos_puntuaciones <- sapply(apellidos_nombre_lista, function(x)x[1])
 
 ```
+Importa el fichero puntos.txt y extrae la puntuación obtenida (readlines).
 
+```{r}
+puntos_full_names <- list.files(path = ".", pattern = "\\.txt$", full.names = T, recursive = T)
+
+puntos_lista<- lapply(puntos_full_names,function(x) {readLines(con = x, n= -1)})
+```
+
+¿todas las entregas usaron como nombre del fichero de puntos el indicado; puntos.txt ?¿cuántas variantes hay ?. ¿Todas las entregas contienen el fichero de puntos y el justificante de realización del curso ?
