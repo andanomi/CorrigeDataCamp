@@ -38,3 +38,10 @@ puntos_lista<- lapply(puntos_full_names,function(x) {readLines(con = x, n= -1)})
 ```
 
 ¿todas las entregas usaron como nombre del fichero de puntos el indicado; puntos.txt ?¿cuántas variantes hay ?. ¿Todas las entregas contienen el fichero de puntos y el justificante de realización del curso ?
+
+```{r}
+ficheros_puntos <- lapply(informacion,function(x){x[3]})
+ficheros_correctos <- lapply(ficheros_puntos, function(x){grep("puntos.txt",x)})
+
+```
+
