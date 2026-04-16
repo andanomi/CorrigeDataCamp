@@ -20,6 +20,9 @@ puntuaciones
 ```{r}
 
 informacion <- strsplit(puntuaciones,split = "/", fixed = T)
-informacion
+
+apellidos_nombres_id <- sapply(informacion, function(x) x[2])
+
+
 ```
 
