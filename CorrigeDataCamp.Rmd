@@ -14,10 +14,12 @@ puntuaciones <- list.files(path=".", pattern = "\\.txt$", full.names = F, recurs
 
 justificantes <- list.files(path=".",pattern = "\\.pdf$", full.names = F, recursive = TRUE)
 
-
+puntuaciones
 ```
 
 ```{r}
 
+informacion <- strsplit(puntuaciones,split = "/", fixed = T)
+informacion
 ```
 
