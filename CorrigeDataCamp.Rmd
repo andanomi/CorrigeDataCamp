@@ -1,0 +1,16 @@
+---
+title: "Corrige Data Camp"
+author: "Andrés David Noza Mico"
+date: "2026-04-16"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+list.files(path=".", pattern = "\\.txt", full.names = TRUE, recursive = T)
+
+```
+
