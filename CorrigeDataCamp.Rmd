@@ -78,8 +78,18 @@ NomFiles <- sapply(ficheros_puntos,function(x){x[1]}) # de la misma forma que co
 NomFiles
 puntos_lista
 evalua_df <- as.data.frame(lapply(list(apellidos_puntuaciones,puntos,NomFiles,puntos_texto),unlist))
- colnames(evalua_df) <- c("Apellidos","Puntuaciones","Nombres de archivos","Texto de archivo")
+ colnames(evalua_df) <- c("Apellido(s)","Puntuaciones","Nombres de archivos","Texto de archivo")
 library(writexl)
 write_xlsx(evalua_df, "NotasRIntermedio.xlsx")
+
 ```
+
+```{r}
+library(readxl)
+AlumnosTD25_26 <- read_excel("AlumnosTD25_26.xlsx")
+ 
+library(dplyr)
+df_final <- left_join(AlumnosTD25_26,evalua_df, by = "Apellido(s)")
+```
+
 
