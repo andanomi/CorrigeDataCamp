@@ -71,12 +71,15 @@ Almacena el dataframe en un fichero excel llamado NotasRIntermedio.xlsx
 
 
 ```{r}
+
 apellidos_puntuaciones
 puntos
 NomFiles <- sapply(ficheros_puntos,function(x){x[1]}) # de la misma forma que con puntos
 NomFiles
 puntos_lista
 evalua_df <- as.data.frame(lapply(list(apellidos_puntuaciones,puntos,NomFiles,puntos_texto),unlist))
- length(puntos_lista)  == length(NomFiles)
+ colnames(evalua_df) <- c("Apellidos","Puntuaciones","Nombres de archivos","Texto de archivo")
+library(writexl)
+write_xlsx(evalua_df, "NotasRIntermedio.xlsx")
 ```
 
