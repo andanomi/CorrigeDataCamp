@@ -38,7 +38,7 @@ puntos_lista<- lapply(puntos_full_names,function(x) {readLines(con = x, n= -1)})
 
 
 puntos_correctos<- regmatches(puntos_lista, gregexpr("\\b\\d{4,5}\\b", puntos_lista))
-
+puntos <- sapply(puntos_correctos,function(x){x[1]})
 ```
 
 ¿todas las entregas usaron como nombre del fichero de puntos el indicado; puntos.txt ?¿cuántas variantes hay ?. ¿Todas las entregas contienen el fichero de puntos y el justificante de realización del curso ?
@@ -67,7 +67,6 @@ Almacena el dataframe en un fichero excel llamado NotasRIntermedio.xlsx
 apellidos_puntuaciones
 puntos
 NomFiles <- sapply(ficheros_puntos,function(x){x[1]}) # de la misma forma que con puntos
-
 puntos_lista
 ```
 
