@@ -36,6 +36,13 @@ puntos_full_names <- list.files(path = ".", pattern = "\\.txt$", full.names = T,
 
 puntos_lista<- lapply(puntos_full_names,function(x) {readLines(con = x, n= -1)})
 
+puntos_texto <- lapply(puntos_lista,function(x) 
+  if (length(x) > 1) {
+    return(paste(x,collapse = " "))
+  } else {
+    return(as.character(x))
+  }
+ )
 
 puntos_correctos<- regmatches(puntos_lista, gregexpr("\\b\\d{4,5}\\b", puntos_lista))
 puntos <- sapply(puntos_correctos,function(x){x[1]})
@@ -67,6 +74,9 @@ Almacena el dataframe en un fichero excel llamado NotasRIntermedio.xlsx
 apellidos_puntuaciones
 puntos
 NomFiles <- sapply(ficheros_puntos,function(x){x[1]}) # de la misma forma que con puntos
+NomFiles
 puntos_lista
+evalua_df <- as.data.frame(lapply(list(apellidos_puntuaciones,puntos,NomFiles,puntos_texto),unlist))
+ length(puntos_lista)  == length(NomFiles)
 ```
 
